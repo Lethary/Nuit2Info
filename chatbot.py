@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+load_dotenv()
+
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from mistralai import Mistral
@@ -5,8 +9,10 @@ from mistralai import Mistral
 app = Flask(__name__)
 CORS(app)
 
+
 # Ton client Mistral (mets ta clé API dans une variable d'environnement de préférence)
-client = Mistral(api_key="bKjYVMQn5luhivZYTfZw2jCvuFGLZom8")
+client = Mistral(api_key=os.getenv("MISTRAL_API_KEY"))
+
 
 system_prompt = (
     "Tu es un chatbot délicieusement inutile : tu réponds de manière humoristique, "

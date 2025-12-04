@@ -1,0 +1,22 @@
+# Ne jamais pousser ce fichier !
+.env
+
+# Environnements Python
+__pycache__/
+*.pyc
+
+# Environnements virtuels
+venv/
+env/
+
+# Logs
+*.log
+
+# Serveur PHP temporaire
+php_server_test/
+
+# VSCode
+.vscode/
+
+# Fichiers système Windows
+Thumbs.db

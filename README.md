@@ -79,12 +79,115 @@ Créer l’expérience la plus amusante possible :
 
 ## 🛠️ Installation et Lancement
 
-### 1️⃣ Prérequis  
-- Python 3.10+  
-- pip  
-- (Optionnel) Clé API Google Gemini si mode IA activé  
+# 🚀 Installation complète du Chatbot – Machine vierge (Windows)
+Guide Markdown au format `.txt`
 
-### 2️⃣ Installation des dépendances
+---
+
+# 1️⃣ Cloner le projet depuis GitHub
+
+Ouvre un terminal dans le dossier où tu veux installer le projet :
 
 ```bash
-pip install flask flask-cors google-genai
+git clone --branch chatbot --single-branch https://github.com/Lethary/Nuit2Info.git
+```
+
+Puis entre dans le dossier :
+
+```bash
+cd Nuit2Info
+```
+
+---
+
+# 2️⃣ Installer Python 3.x
+
+Télécharger Python :  
+https://www.python.org/downloads/windows/
+
+✔ Cocher **"Add Python to PATH"**  
+✔ Installer
+
+Vérification :
+
+```bash
+python --version
+```
+
+---
+
+# 3️⃣ Créer et activer un environnement virtuel
+
+```bash
+python -m venv venv
+```
+
+Activer :
+
+```bash
+venv\Scripts\activate
+```
+
+---
+
+# 4️⃣ Installer les dépendances Python nécessaires
+
+```bash
+pip install flask flask-cors python-dotenv mistralai
+```
+
+---
+
+# 5️⃣ Préparer les fichiers d’environnement
+
+Créer un fichier `.env` (ou renommer `.env.example` en `.env`) :
+
+```
+MISTRAL_API_KEY=gsk_VOTRE_CLE_API_ICI
+```
+
+# 6️⃣ Lancer le serveur Flask (backend chatbot)
+
+```bash
+python chatbot.py
+```
+
+Si tout est OK, tu verras :
+
+```
+
+Running on http://127.0.0.1:5000
+```
+
+Ton backend est opérationnel.
+
+---
+
+# 7️⃣ Lancer le serveur PHP pour afficher ton site
+
+Dans le dossier où se trouve ton `index.php` :
+
+```bash
+php -S localhost:8000
+```
+
+Le site est accessible à :
+
+➡️ http://localhost:8000  
+➡️ Le chatbot communique avec : http://127.0.0.1:5000/chat
+
+---
+
+# 8️⃣ Vérifier que le chatbot fonctionne
+
+✔ Ouvre ton navigateur  
+✔ Va sur : http://localhost:8000  
+✔ Clique sur l’icône du chatbot  
+✔ Envoie un message  
+✔ Le backend Flask → appelle Mistral → renvoie la réponse
+
+---
+
+# 🎉 Fin de l’installation !
+
+Tu as maintenant un chatbot fonctionnel, connecté à une API externe, prêt à déployer ou à intégrer dans un site web.
