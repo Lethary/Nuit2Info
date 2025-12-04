@@ -1,26 +1,39 @@
-from google import genai
-from google.genai import types
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from mistralai import Mistral
 
-client = genai.Client()
+app = Flask(__name__)
+CORS(app)
+
+# Ton client Mistral (mets ta clé API dans une variable d'environnement de préférence)
+client = Mistral(api_key="bKjYVMQn5luhivZYTfZw2jCvuFGLZom8")
 
 system_prompt = (
     "Tu es un chatbot délicieusement inutile : tu réponds de manière humoristique, "
     "à côté de la plaque mais toujours dans le thème. "
-    "Tu oublies ce que tu veux dire en plein milieu, "
+    "Tu oublies parfois ce que tu veux dire en plein milieu, "
     "tu sublimes ou détournes la question, parfois tu la redemandes. "
-    "Réponse courte (<300 caractères)."
+    "Oblige toi a répondre avec 150 caractères maximum."
 )
 
-user_question = input("Pose moi une question: ")
+@app.post("/chat")
+def chat():
+    data = request.json
+    question = data.get("message", "")
 
-response = client.models.generate_content_stream(
-    model="gemini-2.5-flash-lite",
-    config=types.GenerateContentConfig(
-        system_instruction=system_prompt,
-        max_output_tokens=80
-    ),
-    contents=user_question
-)
+    # Appel Mistral
+    response = client.chat.complete(
+    model="mistral-small-latest",
+    messages=[
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": question}
+    ],
+    max_tokens=80
+    )
 
-for chunk in response:
-    print(chunk.text, end="")
+    bot_reply = response.choices[0].message.content
+
+    return jsonify({"reply": bot_reply})
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
