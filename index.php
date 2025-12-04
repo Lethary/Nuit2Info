@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+include 'config.php';
 $db = new PDO(DNS, LOGIN, PASSWORD, $options);
 
 $sql = 'SELECT * FROM ni_afficher';
