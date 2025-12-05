@@ -1,8 +1,9 @@
+<?php include './header.php'; ?>
 <section>
 <?php 
 session_start();
-    require_once "../connect.php";
-    require_once "../fonctions/qcm.php";
+    require_once "connect.php";
+    require_once "fonctions/qcm.php";
 
     if (!isset($_GET['id_theme']) || empty($_GET['id_theme'])){
         header("Location: theme.php");
@@ -60,3 +61,4 @@ session_start();
  <a href="<?php echo $url ;?>"> <button> Continuer </button> </a>
 
 </section>
+<?php include 'footer.php'; ?>

@@ -1,8 +1,9 @@
-<section>
+<?php include './header.php'; ?>
+<section class="hero">
     <?php
     session_start();
-    require_once "../connect.php";
-    require_once "../fonctions/qcm.php";
+    require_once "connect.php";
+    require_once "fonctions/qcm.php";
 
     if(isset($_SESSION['nbScene'])){
         $_SESSION['nbScene'] = null;
@@ -36,5 +37,7 @@
     <p>Voici la liste des themes possibles : </p>
     <?php
     afficherTheme($db);
-    ?>
+    ?> 
 </section>
+
+<?php include 'footer.php'; ?>

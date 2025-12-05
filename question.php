@@ -1,8 +1,9 @@
+<?php include './header.php'; ?>
 <section>
 <?php
 session_start();
-    require_once "../connect.php";
-    require_once "../fonctions/qcm.php";
+    require_once "connect.php";
+    require_once "fonctions/qcm.php";
 
     if(!isset($_POST['reponseQuestion'])){
         if(!isset($_GET['id_question'])) {
@@ -58,3 +59,4 @@ elseif(isset($reponse) && $reponse==false){
 }
 ?>
 </section>
+<?php include 'footer.php'; ?>
