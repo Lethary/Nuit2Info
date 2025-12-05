@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>BeeResist – Un numérique qui donne envie de vivre</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style_chatbot.css">
 </head>
 
 <body class="bright-theme">

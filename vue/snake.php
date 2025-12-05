@@ -31,7 +31,7 @@
 
 </div>
 
-<script src="../script/script_snake.js"></script>
+<script src="../script/snake.js"></script>
 </body>
 </html>
 
