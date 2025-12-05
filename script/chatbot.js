@@ -66,7 +66,7 @@ async function getBotResponse(userMessage) {
 
     showTyping();
     try {
-        const response = await fetch("http://127.0.0.1:5000/chat", {
+        const response = await fetch("/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: userMessage })
@@ -104,7 +104,7 @@ function showTyping() {
 
     // Avatar
     const img = document.createElement("img");
-    img.src = "chatBotIcon.png";
+    img.src = "img/chatBotIcon.png";
     img.style.width = "30px";
     img.style.height = "30px";
     img.style.borderRadius = "50%";
