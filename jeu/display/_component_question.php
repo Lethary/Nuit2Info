@@ -12,9 +12,9 @@ $roomId = $_GET["rid"];
             
             $roomResult = new roomResult;
             $roomResult -> solved = $isCorrect;
-            $roomResult -> independencyMod = getIndependencyImpact($roomId, isset($_GET["c"]) && !empty($_GET["c"]) ? $_GET["c"] : -1);
-            $roomResult -> behaviourMod = 0;
-            $roomResult -> ecologyMod = 0;
+            $roomResult -> independencyMod = getIndependencyImpact($roomId, isset($_GET["c"]) && !empty($_GET["c"]) ? $_GET["c"] : "-1");
+            $roomResult -> behaviourMod = getBehaviourImpact($roomId, isset($_GET["c"]) && !empty($_GET["c"]) ? $_GET["c"] : "-1");
+            $roomResult -> ecologyMod = getEcologyImpact($roomId, isset($_GET["c"]) && !empty($_GET["c"]) ? $_GET["c"] : "-1");
             
             if (!isset($_COOKIE["resultsCookie"][$roomId]) || empty($_COOKIE["resultsCookie"][$roomId]) || !is_object($_COOKIE["resultsCookie"][$roomId]) || $_COOKIE["resultsCookie"][$roomId] != $roomResult) {
                 $cookieValue = json_decode($_COOKIE["resultsCookie"], true);

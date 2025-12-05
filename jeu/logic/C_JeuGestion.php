@@ -15,25 +15,37 @@ if ((isset($_GET["reset"]) && $_GET["reset"] == true) || (!isset($_COOKIE["resul
 
 function calculateScores() {
     global $independencyScore;
-    if (isset($_COOKIE["resultsCookie"]) && !empty($_COOKIE["resultsCookie"]) && is_object(json_decode($_COOKIE["resultsCookie"]))) {
-        $cookieValue = json_decode($_COOKIE["resultsCookie"], true);
-        $independencyScore = 8;
-        foreach ($cookieValue as $roomCookie) {
-            if ($roomCookie["independencyMod"] > 0) {
-                $independencyScore = $independencyScore + ((100 - 8) / 13);
-            } else if ($roomCookie["independencyMod"] < 0) {
-                $independencyScore = $independencyScore - ((100 - 8) / 13);
-            }
-        }
-    } else {
-        $independencyScore = 8;
-    }
-    
+    $independencyScore = 8 + ((100 - 8) / 4) * 3;
+
     global $behaviourScore;
-    $behaviourScore = 8;
+    $behaviourScore = 8 + ((100 - 8) / 6);
 
     global $ecoScore;
     $ecoScore = 8;
+
+    if (isset($_COOKIE["resultsCookie"]) && !empty($_COOKIE["resultsCookie"]) && is_object(json_decode($_COOKIE["resultsCookie"]))) {
+        $cookieValue = json_decode($_COOKIE["resultsCookie"], true);
+        foreach ($cookieValue as $roomCookie) {
+            if ($roomCookie["independencyMod"] > 0) {
+                $independencyScore = $independencyScore + ((100 - 8) / 4);
+            } else if ($roomCookie["independencyMod"] < 0) {
+                $independencyScore = $independencyScore - ((100 - 8) / 4);
+            }
+
+            if ($roomCookie["behaviourMod"] > 0) {
+                $behaviourScore = $behaviourScore + ((100 - 8) / 6);
+            } else if ($roomCookie["behaviourMod"] < 0) {
+                $behaviourScore = $behaviourScore - ((100 - 8) / 6);
+            }
+
+            if ($roomCookie["ecologyMod"] > 0) {
+                $ecoScore = $ecoScore + ((100 - 8) / 3);
+            } else if ($roomCookie["ecologyMod"] < 0) {
+                $ecoScore = $ecoScore - ((100 - 8) / 3);
+            }
+        }
+    }
+
 }
 
 function solvedCount() {
@@ -365,46 +377,116 @@ function getIndependencyImpact($id, $choice) {
             };
             break;
         case 'hall':
+            return 0;
+            break;
+        case 'servers_room':
+            return 0;
+            break;
+        case 'unused_room':
+            return 0;
+            break;
+        case 'formation_room':
             switch ($choice) {
-                case "-1": return 0;
-                case "1": return 1;
-                default: return -1;
+                case "2": return -1;
+                default: return 0;
+            };
+            break;
+        case 'entrance':
+            switch ($choice) {
+                case "3": return -1;
+                default: return 0;
+            };
+            break;
+        case 'infirmary':
+            switch ($choice) {
+                case "1": return -1;
+                default: return 0;
+            };
+            break;
+    }
+    return 0;
+}
+function getBehaviourImpact($id, $choice) {
+    switch($id){
+        case 'classroom':
+            return 0;
+            break;
+        case 'hall':
+            switch ($choice) {
+                case "2": return 1;
+                default: return 0;
             };
             break;
         case 'servers_room':
             switch ($choice) {
                 case "-1": return 0;
-                case "1": case "3": return 1;
+                case "2": case "4": return 1;
                 default: return -1;
             };
             break;
         case 'unused_room':
             switch ($choice) {
-                case "-1": return 0;
-                case "1": case "2": return 1;
-                default: return -1;
+                case "3": return 1;
+                default: return 0;
             };
             break;
         case 'formation_room':
             switch ($choice) {
-                case "-1": return 0;
-                case "2": case "3": return 1;
+                case "-1": case "2": return 0;
+                case "1": return 1;
                 default: return -1;
             };
             break;
         case 'entrance':
             switch ($choice) {
                 case "-1": return 0;
-                case "1": case "3": return 1;
+                case "2": return 1;
                 default: return -1;
             };
             break;
         case 'infirmary':
             switch ($choice) {
-                case "-1": return 0;
-                case "1": case "3": return 1;
-                default: return -1;
+                case "3": return -1;
+                default: return 0;
             };
+            break;
+    }
+    return 0;
+}
+function getEcologyImpact($id, $choice) {
+    switch($id){
+        case 'classroom':
+            return 0;
+            break;
+        case 'hall':
+            switch ($choice) {
+                case "1": return -1;
+                case "2": case "3": return 1;
+                default: return 0;
+            };
+            break;
+        case 'servers_room':
+            return 0;
+            break;
+        case 'unused_room':
+            switch ($choice) {
+                case "3": return 1;
+                case "2": return -1;
+                default: return 0;
+            };
+            break;
+        case 'formation_room':
+            switch ($choice) {
+                case "3": return -1;
+                case "1": return 1;
+                default: return 0;
+            };
+            break;
+        case 'entrance':
+            return 0;
+            break;
+        case 'infirmary':
+            return 0;
             break;
     }
     return 0;
