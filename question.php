@@ -1,5 +1,4 @@
 <?php include './header.php'; ?>
-<section>
 <?php
 session_start();
     require_once "connect.php";
@@ -33,30 +32,44 @@ session_start();
     }
 
     ?>
-<h1> <?php echo $_SESSION['question'][0]['libelle']?></h1>
+<section class="scene-page">
 
-<?php 
-for ($i = 0; $i < count($_SESSION['question']); $i++) {
-    echo '<form action="question.php?id_question='.$_GET['id_question'].'" method="POST">
-            <button type="submit" name="reponseQuestion" value="'.$_SESSION['question'][$i]['est_vrai'].'">'
-            .$_SESSION['question'][$i]['contenu'].
-         '</button>
-          </form>';
-}
+    <div class="scene-container">
 
-if(isset($reponse) && $reponse == true){
-    echo '<p>Bravo vous avez raison!<br>
-    Explication : </p> ';
-    echo '<p> '.$_SESSION['question'][0]['explication'].' </p>';
-    if(!isset($_SESSION['indexer'])){
-        $_SESSION['indexer'] = true;
-        $_SESSION['indexScene']++;
-    }
-    echo "<a href='scene.php?id_theme=".$_SESSION['theme']."'><button> Continuer </button></a>";
-}
-elseif(isset($reponse) && $reponse==false){
-    echo 'Erreur veuillez reassyer';
-}
-?>
+        <h1 class="scene-title"><?php echo $_SESSION['question'][0]['libelle']; ?></h1>
+
+        <div class="scene-answers">
+            <?php 
+            for ($i = 0; $i < count($_SESSION['question']); $i++) {
+                echo '
+                <form action="question.php?id_question='.$_GET['id_question'].'" method="POST">
+                    <button class="scene-btn" type="submit" name="reponseQuestion" value="'.$_SESSION['question'][$i]['est_vrai'].'">
+                        '.$_SESSION['question'][$i]['contenu'].'
+                    </button>
+                </form>';
+            }
+            ?>
+        </div>
+
+        <?php 
+        if(isset($reponse) && $reponse == true){
+            echo '
+            <div class="scene-feedback success">
+                <p>✅ Bonne réponse !</p>
+                <p>'.$_SESSION['question'][0]['explication'].'</p>
+            </div>
+            ';
+            echo "<a href='scene.php?id_theme=".$_SESSION['theme']."'>
+                    <button class='scene-btn continue-btn'>Continuer</button>
+                  </a>";
+        }
+        elseif(isset($reponse) && $reponse == false){
+            echo '<div class="scene-feedback error"><p>❌ Mauvaise réponse, réessayez.</p></div>';
+        }
+        ?>
+
+    </div>
+
 </section>
+
 <?php include 'footer.php'; ?>

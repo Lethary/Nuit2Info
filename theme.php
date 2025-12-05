@@ -1,5 +1,5 @@
 <?php include './header.php'; ?>
-<section class="hero">
+<section class="hero theme-zone-ux">
     <?php
     session_start();
     require_once "connect.php";
@@ -33,11 +33,12 @@
     }
 
     ?>
-    <h1> Bienvenu sur le jeu interactive xxx </h1>
-    <p>Voici la liste des themes possibles : </p>
-    <?php
-    afficherTheme($db);
-    ?> 
+ <h1 class="theme-title-ux">Bienvenue sur le jeu interactif <span>de aFutaie.</span></h1>
+    <p class="theme-subtext-ux">Choisis un thème et découvre comment réduire ton impact numérique :</p>
+
+    <div class="theme-flex-container">
+        <?php afficherTheme($db); ?>
+    </div>
 </section>
 
 <?php include 'footer.php'; ?>
