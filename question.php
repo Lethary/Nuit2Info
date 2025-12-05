@@ -37,34 +37,42 @@ session_start();
     <div class="scene-container">
 
         <h1 class="scene-title"><?php echo $_SESSION['question'][0]['libelle']; ?></h1>
-
         <div class="scene-answers">
-            <?php 
-            for ($i = 0; $i < count($_SESSION['question']); $i++) {
-                echo '
-                <form action="question.php?id_question='.$_GET['id_question'].'" method="POST">
-                    <button class="scene-btn" type="submit" name="reponseQuestion" value="'.$_SESSION['question'][$i]['est_vrai'].'">
-                        '.$_SESSION['question'][$i]['contenu'].'
-                    </button>
-                </form>';
-            }
-            ?>
-        </div>
-
         <?php 
+        
+        for ($i = 0; $i < count($_SESSION['question']); $i++) {
+            echo '
+            <form action="question.php?id_question='.$_GET['id_question'].'" method="POST">
+                <button class="btn-secondary" type="submit" name="reponseQuestion" value="'.$_SESSION['question'][$i]['est_vrai'].'">
+                    '.$_SESSION['question'][$i]['contenu'].'
+                </button>
+            </form>';
+        }
+        ?>
+        </div>
+        <?php  
         if(isset($reponse) && $reponse == true){
             echo '
-            <div class="scene-feedback success">
-                <p>✅ Bonne réponse !</p>
+            <div class="hero-desc">
+                <p><strong>Bonne réponse !</strong></p>
                 <p>'.$_SESSION['question'][0]['explication'].'</p>
             </div>
             ';
-            echo "<a href='scene.php?id_theme=".$_SESSION['theme']."'>
-                    <button class='scene-btn continue-btn'>Continuer</button>
-                  </a>";
+
+            if(!isset($_SESSION['indexer'])){
+                $_SESSION['indexer'] = true;
+                $_SESSION['indexScene']++;
+            }
+
+            echo "
+            <a href='scene.php?id_theme=".$_SESSION['theme']."'>
+                <button class='btn-primary'>Continuer</button>
+            </a>";
         }
         elseif(isset($reponse) && $reponse == false){
-            echo '<div class="scene-feedback error"><p>❌ Mauvaise réponse, réessayez.</p></div>';
+            echo '
+            <p class="hero-desc">❌ Mauvaise réponse, réessayez.</p>
+            ';
         }
         ?>
 
@@ -72,4 +80,5 @@ session_start();
 
 </section>
 
+</section>
 <?php include 'footer.php'; ?>
