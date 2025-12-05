@@ -12,7 +12,6 @@ function afficherTheme(PDO $db)
 
     $statement->closeCursor();
 }
-
 function recupererScenes(PDO $db, $id_theme)
 {
     $stmt = $db->prepare('SELECT SC.id_scene, SC.titre, SC.ordre, SC.id_theme, SC.contenu, IM.lien as lien FROM ni_scenes SC 
