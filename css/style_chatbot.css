@@ -1,0 +1,141 @@
+/* Bouton rond */
+#chatbot-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 90px;
+    height: 90px;
+
+    /* Dégradé du site */
+    background: white;
+
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+}
+
+/* Fenêtre popup */
+#chatbot-window {
+    position: fixed;
+    right: 10px;
+    bottom: 120px;
+    width: 320px;
+    height: 420px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(255, 120, 200, 0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+/* Header avec couleur abeille */
+#chatbot-header {
+    background: linear-gradient(135deg, #b44bff, #ff6fd8);
+    color: white;
+    padding: 12px;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatbot-close {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Zone de messages */
+#chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    background: #fff8f4;
+}
+
+/* Input area */
+#chatbot-input-area {
+    display: flex;
+    border-top: 1px solid #eee;
+}
+
+#chatbot-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+/* Bouton envoyer */
+#chatbot-send {
+    background: linear-gradient(135deg, #ff6fd8, #ffcc70);
+    color: white;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+#chatbot-send:hover {
+    filter: brightness(1.1);
+}
+
+/* Style bulles */
+.msg {
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin: 5px 0;
+    max-width: 80%;
+}
+
+/* Message utilisateur → rose/orange du site */
+.user {
+    background: linear-gradient(135deg, #ff6fd8, #ffcc70);
+    color: white;
+    align-self: flex-end;
+}
+
+/* Message bot → gris doux */
+.bot {
+    background: #f0e9ff;
+    color: #333;
+    align-self: flex-start;
+}
+
+/* Animation typing */
+.typing {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.typing-dot {
+    width: 6px;
+    height: 6px;
+    background: #c98cff;
+    border-radius: 50%;
+    animation: blink 1.4s infinite both;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0% { opacity: 0.2; }
+    20% { opacity: 1; }
+    100% { opacity: 0.2; }
+}

@@ -1,1 +1,5 @@
 connect.php
+node_modules/
+.DS_Store
+.env
+.cache/

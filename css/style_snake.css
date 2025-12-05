@@ -1,0 +1,119 @@
+@font-face {
+    font-family: "Arcade";
+    src: url("https://fonts.gstatic.com/s/pressstart2p/v9/e3t4euO8T-267oIAQAu6Pg.woff2");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2%;           /* écart relatif */
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.side-img {
+    max-width: 15%;    /* s’adapte à la largeur de l’écran */
+    height: auto;
+    border: 4px solid #4285F4;
+    box-shadow: 0 0 15px #0F9D58;
+    border-radius: 10px;
+}
+
+/* Borne arcade du centre */
+.arcade-border {
+    width: 60%;        /* prend la majorité de l’espace central */
+    max-width: 500px;  /* limite la taille sur grand écran */
+    padding: 1.5%;
+    border: 8px solid #DB4437;
+    box-shadow: 0 0 30px #F4B400, inset 0 0 20px #fff3;
+    border-radius: 10px;
+    background: #222;
+    text-align: center;
+}
+
+/* Titre */
+.title {
+    font-size: 2rem;
+    color: #4285F4; /* bleu Google */
+    text-shadow: 3px 3px 0 #000, 0 0 15px #DB4437; /* rouge Google */
+    margin-bottom: 10px;
+}
+
+/* Container du canvas + HUD */
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Arcade", monospace;
+}
+
+/* HUD au-dessus du canvas */
+#hud {
+    width: 100%;
+    height: auto;
+    padding: 11px;
+    
+    border: 2px solid #4285F4;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+/* Score */
+#score {
+    color: #DB4437; /* rouge Google */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Message d’acquisition */
+#message {
+    color: #0F9D58; /* vert Google */
+    font-size: 14px;
+    font-weight: bold;
+    height: 20px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Canvas / jeu */
+#game {
+    width: 100%;       /* prend 100% du container arcade-border */
+    height: auto;      /* garde les proportions */
+    border: 2px solid #4285F4;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 0 15px #F4B400 inset;
+    background: #000;
+    image-rendering: pixelated;
+}
+
+@media screen and (max-width: 768px) {
+    .layout {
+        flex-direction: column; /* empile verticalement les images + jeu */
+        gap: 15px;
+    }
+
+    .side-img {
+        max-width: 50%; /* images plus petites sur mobile */
+        margin: 0 auto;
+    }
+
+    .arcade-border {
+        width: 90%; /* occupe presque tout l’écran */
+    }
+
+    #score, #message {
+        font-size: 16px; /* texte plus lisible sur petit écran */
+    }
+}

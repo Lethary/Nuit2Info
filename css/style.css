@@ -1,0 +1,165 @@
+/* --- BASE --- */
+.bright-theme {
+    background: linear-gradient(135deg, #fffcf5, #fff2e6, #fdf7ff);
+    color: #444;
+    font-family: "Segoe UI", sans-serif;
+    min-height: 100vh;
+}
+
+/* --- TOP BAR --- */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-bee {
+    height: 55px;
+}
+
+.brand-title {
+    font-size: 1.9rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.honey {
+    background: linear-gradient(45deg, #ff7edb, #ffb347, #ffe680);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- PAGE --- */
+.page {
+    width: 90%;
+    max-width: 1300px;
+    margin: 40px auto;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0;
+    align-items: center;
+}
+
+.hero-left {
+    max-width: 550px;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+}
+
+.hero-desc {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+}
+
+/* --- BUTTONS --- */
+.btn-primary {
+    background: linear-gradient(45deg, #ff7edb, #ffb347);
+    padding: 14px 26px;
+    border-radius: 50px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(255, 150, 200, 0.3);
+}
+
+.btn-primary:hover {
+    transform: scale(1.04);
+}
+
+.btn-secondary {
+    background: #ffffff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: 2px solid #ffaa66;
+    color: #ff8a4d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-secondary:hover {
+    background: #ffe8d3;
+}
+
+.btn-link {
+    color: #ff8a4d;
+    text-decoration: underline;
+}
+
+/* --- HERO VISUAL --- */
+.hero-right {
+    position: relative;
+    width: 380px;
+}
+
+.sun-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #ffebcc, #ffd5f5, transparent);
+    filter: blur(40px);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.hero-bee {
+    width: 100%;
+    z-index: 3;
+}
+
+/* --- CARD --- */
+.card {
+    background: linear-gradient(135deg, #e8fff5, #ffe8f7);
+    padding: 35px 45px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    box-shadow: 0 8px 20px rgba(255, 140, 200, 0.2);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.emoji-flower {
+    font-size: 4rem;
+}
+
+/* --- FOOTER --- */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #fafafa;
+    text-align: center;
+    padding: 40px;
+    color: #888;
+    margin-top: 60px;
+}
+
+.btn-snake {
+    text-decoration: none;
+    color: #888;
+}
+
