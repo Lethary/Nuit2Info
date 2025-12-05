@@ -1,10 +1,15 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuit de l'info</title>
-</head>
-<body>
-    
-</body>
-</html>
+<?php
+
+$page = $_GET['page'] ?? 'home';
+
+switch ($page) {
+
+    case 'snake':
+        require __DIR__ . "/vue/snake.php";
+        break;
+    default:
+        require __DIR__ . "/vue/header.php";
+        require __DIR__ . "/vue/index.php";
+        require __DIR__ . "/vue/footer.php";
+        break;
+}
