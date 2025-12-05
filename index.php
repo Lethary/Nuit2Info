@@ -15,7 +15,7 @@
                 QCM →
             </a>
 
-            <a href="jeu" class="btn-secondary">
+            <a href="jeu/index.php" class="btn-secondary">
                 Jeux
             </a>
         </div>
