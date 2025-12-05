@@ -33,7 +33,7 @@ function recupererScenes(PDO $db, $id_theme)
 }
 
 function recupererQuestion(PDO $db, $questionID){
-    $sql = "SELECT RE.id_reponse, QE.libelle, RE.contenu, CO.est_vrai  FROM ni_questions QE
+    $sql = "SELECT RE.id_reponse, QE.libelle, RE.contenu, CO.est_vrai, QE.explication  FROM ni_questions QE
             INNER JOIN ni_contenir CO ON QE.id_question = CO.id_question
             INNER JOIN ni_reponses RE ON CO.id_reponse = RE.id_reponse 
             WHERE QE.id_question = :id_question";
