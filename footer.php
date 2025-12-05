@@ -1,3 +1,6 @@
+<div id="chatbot-button">
+    <img src="img/chatBotIcon.png" alt="Chatbot" width="70" height="70">
+</div>
 <div id="chatbot-window">
     <div id="chatbot-header">
         Chatbot

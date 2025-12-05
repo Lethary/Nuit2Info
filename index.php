@@ -26,9 +26,7 @@
         <img src="img/bee.svg" alt="Mascotte" class="hero-bee">
     </div>
 </section>
-<div id="chatbot-button">
-    <img src="img/chatBotIcon.png" alt="Chatbot" width="70" height="70">
-</div>
+
 
 
 <?php include 'footer.php'; ?>
