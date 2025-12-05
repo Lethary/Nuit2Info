@@ -1,5 +1,5 @@
 <?php include './header.php'; ?>
-<section>
+<section class="hero">
 <?php 
 session_start();
     require_once "connect.php";
@@ -49,16 +49,24 @@ session_start();
         $_SESSION['indexScene']++;
     }
         $url = "scene.php?id_scene=".$_SESSION['indexScene'];
-    } 
+    }
 ?>
-<h1> <?php echo $_SESSION['scenes'][$_SESSION['indexScene']]['titre'] ?? ""; ?> </h1>
+    
+    <div class="hero-left">
+        <h1>
+            <?php echo $_SESSION['scenes'][$_SESSION['indexScene']]['titre'] ?? ""; ?>
+        </h1>
 
-<p> <?php echo $_SESSION['scenes'][$_SESSION['indexScene']]['contenu'] ?? ""; ?> </p>  
+        <p class="hero-desc">
+            <?php echo $_SESSION['scenes'][$_SESSION['indexScene']]['contenu'] ?? ""; ?>
+        </p>
 
-<img src="<?php echo $_SESSION['scenes'][$_SESSION['indexScene']]['lien'] ?? ""; ?>">
+        <a href="<?php echo $url; ?>" class="btn-primary">Continuer</a>
+    </div>
 
-
- <a href="<?php echo $url ;?>"> <button> Continuer </button> </a>
-
+    <div class="hero-right">
+        <div class="sun-glow"></div>
+        <img src="<?php echo $_SESSION['scenes'][$_SESSION['indexScene']]['lien'] ?? ""; ?>" class="hero-bee">
+    </div>
 </section>
 <?php include 'footer.php'; ?>
