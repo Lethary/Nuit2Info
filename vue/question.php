@@ -44,13 +44,14 @@ for ($i = 0; $i < count($_SESSION['question']); $i++) {
 }
 
 if(isset($reponse) && $reponse == true){
-    echo 'Bravo vous avez raison!';
+    echo '<p>Bravo vous avez raison!<br>
+    Explication : </p> ';
+    echo '<p> '.$_SESSION['question'][0]['explication'].' </p>';
     if(!isset($_SESSION['indexer'])){
         $_SESSION['indexer'] = true;
         $_SESSION['indexScene']++;
     }
     echo "<a href='scene.php?id_theme=".$_SESSION['theme']."'><button> Continuer </button></a>";
-    echo $_SESSION['indexScene'];
 }
 elseif(isset($reponse) && $reponse==false){
     echo 'Erreur veuillez reassyer';
