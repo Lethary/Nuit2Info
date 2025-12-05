@@ -12,7 +12,7 @@
 <header class="topbar">
     <div class="brand">
         <img src="img/bee.svg" alt="Mascotte" class="logo-bee">
-        <span class="brand-title">A<span class="honey">Futaie</span></span>
+        <a href="index.php"> <span class="brand-title">A<span class="honey">Futaie</span></span></a>
     </div>
 </header>
 
