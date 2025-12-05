@@ -1,9 +1,21 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1; /* pousse le footer en bas */
+}
 /* --- BASE --- */
 .bright-theme {
     background: linear-gradient(135deg, #fffcf5, #fff2e6, #fdf7ff);
     color: #444;
     font-family: "Segoe UI", sans-serif;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 /* --- TOP BAR --- */
@@ -148,9 +160,6 @@
 
 /* --- FOOTER --- */
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     background: #fafafa;
     text-align: center;
     padding: 40px;

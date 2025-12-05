@@ -49,8 +49,7 @@ session_start();
         $_SESSION['indexScene']++;
     }
         $url = "scene.php?id_scene=".$_SESSION['indexScene'];
-    }
-  var_dump($_SESSION['scenes'])  
+    } 
 ?>
 <h1> <?php echo $_SESSION['scenes'][$_SESSION['indexScene']]['titre'] ?? ""; ?> </h1>
 
