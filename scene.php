@@ -50,13 +50,14 @@ session_start();
     }
         $url = "scene.php?id_scene=".$_SESSION['indexScene'];
     }
-    
+  var_dump($_SESSION['scenes'])  
 ?>
 <h1> <?php echo $_SESSION['scenes'][$_SESSION['indexScene']]['titre'] ?? ""; ?> </h1>
 
 <p> <?php echo $_SESSION['scenes'][$_SESSION['indexScene']]['contenu'] ?? ""; ?> </p>  
 
 <img src="<?php echo $_SESSION['scenes'][$_SESSION['indexScene']]['lien'] ?? ""; ?>">
+
 
  <a href="<?php echo $url ;?>"> <button> Continuer </button> </a>
 
