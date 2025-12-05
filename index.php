@@ -15,7 +15,7 @@
                 QCM →
             </a>
 
-            <a href="/game2.php" class="btn-secondary">
+            <a href="jeu/index.php" class="btn-secondary">
                 Jeux
             </a>
         </div>
@@ -26,24 +26,7 @@
         <img src="img/bee.svg" alt="Mascotte" class="hero-bee">
     </div>
 </section>
-<div id="chatbot-button">
-    <img src="img/chatBotIcon.png" alt="Chatbot" width="70" height="70">
-</div>
 
-<div id="chatbot-window">
-    <div id="chatbot-header">
-        Chatbot
-        <span id="chatbot-close">✖</span>
-    </div>
 
-    <div id="chatbot-messages"></div>
-
-    <div id="chatbot-input-area">
-        <input id="chatbot-input" placeholder="Écris un message...">
-        <button id="chatbot-send">➤</button>
-    </div>
-</div>
-
-<script src="script/chatbot.js"></script>
 
 <?php include 'footer.php'; ?>

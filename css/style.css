@@ -1,9 +1,21 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1; /* pousse le footer en bas */
+}
 /* --- BASE --- */
 .bright-theme {
     background: linear-gradient(135deg, #fffcf5, #fff2e6, #fdf7ff);
     color: #444;
     font-family: "Segoe UI", sans-serif;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 /* --- TOP BAR --- */
@@ -148,9 +160,6 @@
 
 /* --- FOOTER --- */
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     background: #fafafa;
     text-align: center;
     padding: 40px;
@@ -166,264 +175,3 @@
 
 /* =======================================================
    STYLES ADDITIONNELS – NOMS UNIQUES POUR EVITER TOUT CONFLIT
-======================================================== */
-
-/* --- Conteneur stylisé pour la page de thèmes --- */
-.theme-zone-ux {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
-    padding: 60px 0;
-    animation: tzFade .6s ease-out;
-}
-
-/* Animation douce d'apparition */
-@keyframes tzFade {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* --- Titre relooké (gardant ton texte PHP intact) --- */
-.theme-title-ux {
-    font-size: 2.8rem;
-    font-weight: 800;
-    background: linear-gradient(45deg, #ff8ce2, #ffb467, #ffe680);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-}
-
-/* --- Sous-texte (description) --- */
-.theme-subtext-ux {
-    font-size: 1.25rem;
-    color: #666;
-    text-align: center;
-    max-width: 600px;
-    line-height: 1.5;
-}
-
-/* --- Liste stylisée des thèmes --- */
-.theme-list-ux {
-    width: 100%;
-    max-width: 520px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-/* --- Style unique pour les liens/boutons générés par PHP --- */
-.theme-option-ux {
-    display: block;
-    width: 100%;
-    padding: 16px 22px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.15rem;
-
-    color: #333;
-    text-decoration: none;
-
-    border-radius: 18px;
-    border: 2px solid #ffa96a;
-
-    background: linear-gradient(45deg, #ffe7ff, #fff3dd);
-    box-shadow: 0 6px 16px rgba(255, 155, 200, .25);
-
-    transition: .25s ease-out;
-}
-
-/* Hover / interaction */
-.theme-option-ux:hover {
-    transform: translateY(-3px);
-    background: linear-gradient(45deg, #ffc7f7, #ffe1b0);
-    box-shadow: 0 8px 22px rgba(255, 150, 200, 0.33);
-}
-
-.theme-option-ux:active {
-    transform: scale(.97);
-}
-
-/* =======================================================
-   THEME LIST + ITEM STYLING (NO HTML/PHP CHANGES)
-======================================================== */
-
-/* Container around the list of themes */
-.hero .theme-flex-container {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    padding: 25px;
-    background: #ffffffaa;
-    border-radius: 18px;
-    box-shadow: 0 6px 18px rgba(255, 158, 200, 0.15);
-    backdrop-filter: blur(6px);
-    max-width: 550px;
-    margin: 0 auto;
-}
-
-/* Automatically wrap links inside .hero */
-.hero a:not(.btn-primary):not(.btn-secondary):not(.btn-link) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 16px 22px;
-    border-radius: 14px;
-
-    background: linear-gradient(135deg, #ffe7ff, #fff4e4);
-    border: 2px solid #ffc28d;
-
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: #444;
-    text-decoration: none;
-
-    box-shadow: 0 4px 12px rgba(255, 150, 200, 0.18);
-    transition: 0.25s ease-out;
-}
-
-/* Hover effect */
-.hero a:not(.btn-primary):not(.btn-secondary):not(.btn-link):hover {
-    transform: translateY(-3px);
-    background: linear-gradient(135deg, #ffd8f8, #ffe1bb);
-    box-shadow: 0 7px 16px rgba(255, 140, 200, 0.28);
-}
-
-/* On click */
-.hero a:not(.btn-primary):not(.btn-secondary):not(.btn-link):active {
-    transform: scale(0.97);
-}
-
-
-/* --- Page wrapper --- */
-.scene-page {
-    display: flex;
-    justify-content: center; /* centre horizontalement */
-    align-items: center;     /* centre verticalement */
-    min-height: 90vh;
-    background: linear-gradient(135deg, #fff8f2, #fff1e6);
-    padding: 20px;
-}
-
-/* --- Container principal --- */
-.scene-container {
-    background: #ffffff;
-    padding: 60px 50px;
-    border-radius: 25px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    max-width: 700px;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-}
-
-/* --- Titre --- */
-.scene-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    background: linear-gradient(45deg, #ff7edb, #ffb347, #ffe680);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* --- Réponses --- */
-.scene-answers {
-    display: flex;
-    flex-direction: column; /* une colonne */
-    gap: 20px;
-    align-items: center;
-}
-
-/* --- Boutons réponses --- */
-.scene-btn {
-    width: 100%;
-    max-width: 350px;
-    padding: 18px 24px;
-    border: none;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #ffe7ff, #fff3dd);
-    font-size: 1.15rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 6px 18px rgba(255, 150, 200, 0.25);
-    transition: 0.25s ease;
-}
-
-.scene-btn:hover {
-    transform: translateY(-3px);
-    background: linear-gradient(135deg, #ffd8f8, #ffe1bb);
-    box-shadow: 0 8px 22px rgba(255, 140, 200, 0.35);
-}
-
-.scene-btn:active {
-    transform: scale(0.97);
-}
-
-/* --- Feedback --- */
-.scene-feedback {
-    padding: 18px 22px;
-    border-radius: 18px;
-    font-weight: 600;
-    font-size: 1rem;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.scene-feedback.success {
-    background: #e0fff1;
-    color: #2a7a4f;
-}
-
-.scene-feedback.error {
-    background: #ffe0e0;
-    color: #c03030;
-}
-
-/* --- Bouton Continuer --- */
-.continue-btn {
-    margin-top: 15px;
-    width: 60%;
-    max-width: 250px;
-    padding: 16px 24px;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #ff7edb, #ffb347);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 6px 18px rgba(255, 130, 200, 0.35);
-    transition: 0.25s ease;
-}
-
-.continue-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(255, 130, 200, 0.45);
-}
-
-.continue-btn:active {
-    transform: scale(0.97);
-}
-
-/* --- Responsive mobile --- */
-@media (max-width: 500px) {
-    .scene-container {
-        padding: 40px 25px;
-        gap: 25px;
-    }
-
-    .scene-title {
-        font-size: 2rem;
-    }
-
-    .scene-btn {
-        max-width: 100%;
-        padding: 16px 20px;
-    }
-
-    .continue-btn {
-        width: 80%;
-    }
-}
