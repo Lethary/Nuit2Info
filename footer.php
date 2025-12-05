@@ -11,6 +11,7 @@
         <button id="chatbot-send">➤</button>
     </div>
 </div>
+<script src="script/chatbot.js"></script>
 </main>
 
 <footer class="footer">

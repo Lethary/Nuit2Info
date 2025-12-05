@@ -29,6 +29,6 @@
 <div id="chatbot-button">
     <img src="img/chatBotIcon.png" alt="Chatbot" width="70" height="70">
 </div>
-<script src="script/chatbot.js"></script>
+
 
 <?php include 'footer.php'; ?>
