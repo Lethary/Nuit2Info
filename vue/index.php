@@ -21,11 +21,11 @@
 
     <div class="hero-right">
         <div class="sun-glow"></div>
-        <img src="../img/bee.svg" alt="Mascotte" class="hero-bee">
+        <img src="img/bee.svg" alt="Mascotte" class="hero-bee">
     </div>
 </section>
 <div id="chatbot-button">
-        <img src="/img/chatBotIcon.png" alt="Chatbot" width="70" height="70">
+        <img src="img/chatBotIcon.png" alt="Chatbot" width="70" height="70">
     </div>
 
     <div id="chatbot-window">
@@ -42,4 +42,4 @@
         </div>
     </div>
 
-    <script src="/script/chatbot.js"></script>
+    <script src="script/chatbot.js"></script>
